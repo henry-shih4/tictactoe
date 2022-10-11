@@ -2,7 +2,7 @@ export default function Square(props) {
   return (
     <>
       <button
-        className="bg-red-300 border-solid border-2 border-black text-4xl"
+        className="bg-red-300 border-solid border-2 border-black text-4xl hover:bg-blue-300"
         value={props.value}
         onClick={props.onClick}
         disabled={props.disabled}

@@ -41,7 +41,7 @@ export default function Board() {
     if (win) {
       setDisabled(true);
     }
-    if (noNumbers) {
+    if (noNumbers(board)) {
       setDraw(true);
     }
   });
@@ -82,19 +82,30 @@ export default function Board() {
   function restartGame() {
     setBoard([1, 2, 3, 4, 5, 6, 7, 8, 9]);
     setWin(false);
+    setDraw(false);
     setDisabled(false);
   }
 
   return (
     <>
-      <div className="flex justify-center flex-col items-center">
+      <div className="animate-in slide-in-from-left-72 duration-1000 flex justify-center flex-col items-center">
         {!win ? <div>{xTurn ? "Xs Turn" : "Os Turn"}</div> : <div></div>}
         <div className="absolute t-50">
           {win ? (
             <div className="w-[280px] h-[280px] bg-black text-white text-xl flex justify-center items-center flex-col">
               {!xTurn ? `X's win!` : `O's win!`}
               <button className="text-white" onClick={restartGame}>
-                restart
+                Restart
+              </button>
+            </div>
+          ) : (
+            <div></div>
+          )}
+          {draw ? (
+            <div className="w-[280px] h-[280px] bg-black text-white text-xl flex justify-center items-center flex-col">
+              It's a Draw!
+              <button className="text-white" onClick={restartGame}>
+                Restart
               </button>
             </div>
           ) : (
