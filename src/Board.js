@@ -8,8 +8,6 @@ export default function Board() {
   const [win, setWin] = useState(false);
   const [draw, setDraw] = useState(false);
 
-  const regex = new RegExp(/^[0-9]$/);
-
   function checkWin() {
     if (board[0] === board[1] && board[1] === board[2]) {
       setWin(true);
@@ -84,6 +82,7 @@ export default function Board() {
     setWin(false);
     setDraw(false);
     setDisabled(false);
+    setXTurn(true);
   }
 
   return (
@@ -113,31 +112,76 @@ export default function Board() {
           )}
         </div>
         <div className="grid grid-cols-3 grid-rows-3 w-[600px] h-[600px] border-solid border-2 border-black">
-          <Square onClick={handleClick} value={1} disabled={disabled}>
+          <Square
+            xTurn={xTurn}
+            onClick={handleClick}
+            value={1}
+            disabled={disabled}
+          >
             {isNaN(board[0]) ? board[0] : ""}
           </Square>
-          <Square onClick={handleClick} value={2} disabled={disabled}>
+          <Square
+            xTurn={xTurn}
+            onClick={handleClick}
+            value={2}
+            disabled={disabled}
+          >
             {isNaN(board[1]) ? board[1] : ""}
           </Square>
-          <Square onClick={handleClick} value={3} disabled={disabled}>
+          <Square
+            xTurn={xTurn}
+            onClick={handleClick}
+            value={3}
+            disabled={disabled}
+          >
             {isNaN(board[2]) ? board[2] : ""}
           </Square>
-          <Square onClick={handleClick} value={4} disabled={disabled}>
+          <Square
+            xTurn={xTurn}
+            onClick={handleClick}
+            value={4}
+            disabled={disabled}
+          >
             {isNaN(board[3]) ? board[3] : ""}
           </Square>
-          <Square onClick={handleClick} value={5} disabled={disabled}>
+          <Square
+            xTurn={xTurn}
+            onClick={handleClick}
+            value={5}
+            disabled={disabled}
+          >
             {isNaN(board[4]) ? board[4] : ""}
           </Square>
-          <Square onClick={handleClick} value={6} disabled={disabled}>
+          <Square
+            xTurn={xTurn}
+            onClick={handleClick}
+            value={6}
+            disabled={disabled}
+          >
             {isNaN(board[5]) ? board[5] : ""}
           </Square>
-          <Square onClick={handleClick} value={7} disabled={disabled}>
+          <Square
+            xTurn={xTurn}
+            onClick={handleClick}
+            value={7}
+            disabled={disabled}
+          >
             {isNaN(board[6]) ? board[6] : ""}
           </Square>
-          <Square onClick={handleClick} value={8} disabled={disabled}>
+          <Square
+            xTurn={xTurn}
+            onClick={handleClick}
+            value={8}
+            disabled={disabled}
+          >
             {isNaN(board[7]) ? board[7] : ""}
           </Square>
-          <Square onClick={handleClick} value={9} disabled={disabled}>
+          <Square
+            xTurn={xTurn}
+            onClick={handleClick}
+            value={9}
+            disabled={disabled}
+          >
             {isNaN(board[8]) ? board[8] : ""}
           </Square>
         </div>
