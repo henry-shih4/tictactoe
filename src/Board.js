@@ -41,7 +41,7 @@ export default function Board() {
     if (win) {
       setDisabled(true);
     }
-    if (noNumbers(board)) {
+    if (noNumbers(board) && !win) {
       setDraw(true);
     }
   });
@@ -101,7 +101,7 @@ export default function Board() {
           ) : (
             <div></div>
           )}
-          {draw ? (
+          {draw && !win ? (
             <div className="w-[280px] h-[280px] bg-black text-white text-xl flex justify-center items-center flex-col">
               It's a Draw!
               <button className="text-white" onClick={restartGame}>
